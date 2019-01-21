@@ -23,43 +23,43 @@ $ npm install oracleepmcloud
 
 Require the module:
 
-'''js
+```js
 var oraclecloud = require('oracleepmcloud');
-'''
+```
 
 Set the Oracle Cloud base URL:
 URL Format: https://<SERVICE_NAME>-<TENANT_NAME>.<SERVICE_TYPE>.<dcX>.oraclecloud.com
 
-'''js
+```js
 oraclecloud.oracleBaseURL = 'https://planning-test-b345242.pbcs.us6.oraclecloud.com';
-'''
+```
 
 Set your Oracle Cloud Username:
 Format: identitydomain.johnsmith@mycompany.com
 
-'''js
+```js
 oraclecloud.oracleUserName = 'b345242.cjolie@thehackettgroup.com';
-'''
+```
 **NOTE:** *User must be an identity domain administrator*
 
 Set your Oracle Cloud Password:
 
-'''js
+```js
 oraclecloud.oraclePW = 'myoraclepassword';
-'''
+```
 **NOTE:** *User must be an identity domain administrator*
 
 Set your Oracle Cloud Application Name:
 
-'''js
+```js
 oraclecloud.oracleAppName = 'ORGPLN';
-'''
+```
 
 Set Oracle API version:
 
-'''js
+```js
 oraclecloud.oracleAPIVersion = 'v3';
-'''
+```
 
 
 ### EPBCS Requests
