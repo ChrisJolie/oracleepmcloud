@@ -29,25 +29,38 @@ var oraclecloud = require('oracleepmcloud');
 ```
 
 
-You can specify config defaults that will be applied to every request.
-
+You must specify config defaults that will be applied to every request:
 
 ```js
+/*
+Set your base Oracle Cloud URL
+
+URL Format:
+https://<SERVICE_NAME>-<TENANT_NAME>.<SERVICE_TYPE>.<dcX>.oraclecloud.com
+*/
 oraclecloud.oracleBaseURL = 'https://planning-test-b345242.pbcs.us6.oraclecloud.com';
-// URL Format: https://<SERVICE_NAME>-<TENANT_NAME>.<SERVICE_TYPE>.<dcX>.oraclecloud.com
 
+/*
+Set your Oracle Cloud username
+
+Format: identitydomain.johnsmith@mycompany.com
+Note: User must be an identity domain administrator
+*/
 oraclecloud.oracleUserName = 'b345242.cjolie@thehackettgroup.com';
-// Format: identitydomain.johnsmith@mycompany.com
-// User must be an identity domain administrator
 
+// Set your Oracle Cloud password
 oraclecloud.oraclePW = 'myoraclepassword';
+
+// Set your application name
 oraclecloud.oracleAppName = 'ORGPLN';
+
+// Set your Oracle Cloud API version
 oraclecloud.oracleAPIVersion = 'v3';
 ```
 
 ### EPBCS Request Examples
 
-
+In Progress
 
 ### Data Management Requests
 
