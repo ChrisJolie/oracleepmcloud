@@ -1,0 +1,25 @@
+{
+  "name": "oracleepmcloud",
+  "version": "1.0.0",
+  "description": "Module for communicating with Oracle EPM Cloud applications",
+  "main": "oracleepmcloud.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChrisJolie/oracleepmcloud.git"
+  },
+  "keywords": [
+    "Oracle"
+  ],
+  "author": "Christopher Jolie <christopher.jolie@gmail.com> (http://christopherjolie.com)",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
+  "bugs": {
+    "url": "https://github.com/ChrisJolie/oracleepmcloud/issues"
+  },
+  "homepage": "https://github.com/ChrisJolie/oracleepmcloud#readme"
+}
