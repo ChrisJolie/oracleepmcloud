@@ -21,41 +21,50 @@ $ npm install oracleepmcloud
 
 ### Setting Global Defaults
 
-Require the module:
+
+####Require the module:
 
 ```js
 var oraclecloud = require('oracleepmcloud');
 ```
 
-Set the Oracle Cloud base URL:
+
+####Set the Oracle Cloud base URL:
+
 URL Format: https://<SERVICE_NAME>-<TENANT_NAME>.<SERVICE_TYPE>.<dcX>.oraclecloud.com
 
 ```js
 oraclecloud.oracleBaseURL = 'https://planning-test-b345242.pbcs.us6.oraclecloud.com';
 ```
 
-Set your Oracle Cloud Username:
+
+####Set your Oracle Cloud Username:
+
 Format: identitydomain.johnsmith@mycompany.com
 
 ```js
 oraclecloud.oracleUserName = 'b345242.cjolie@thehackettgroup.com';
 ```
+
 **NOTE:** *User must be an identity domain administrator*
 
-Set your Oracle Cloud Password:
+####Set your Oracle Cloud Password:
 
 ```js
 oraclecloud.oraclePW = 'myoraclepassword';
 ```
+
 **NOTE:** *User must be an identity domain administrator*
 
-Set your Oracle Cloud Application Name:
+
+####Set your Oracle Cloud Application Name:
 
 ```js
 oraclecloud.oracleAppName = 'ORGPLN';
 ```
 
-Set Oracle API version:
+
+####Set Oracle API version:
 
 ```js
 oraclecloud.oracleAPIVersion = 'v3';
