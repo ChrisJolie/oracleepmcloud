@@ -60,7 +60,24 @@ oraclecloud.oracleAPIVersion = 'v3';
 
 ### EPBCS Request Examples
 
-In Progress
+Requesting API Version:
+
+```js
+// Create instance
+var getRESTAPIVersion = oraclecloud.getRESTAPIVersion;
+
+// Call instance
+getRESTAPIVersion()
+  .then(function(response) {
+    console.log(response.data);
+    // Then send response to client
+  }).catch(function(error){
+    console.log(error);
+    // respond with error
+    // next(error);
+  });
+```
+
 
 ### Data Management Requests
 
@@ -73,6 +90,9 @@ Coming Soon
 ### Account Reconciliation Requests
 
 Coming Soon
+
+
+## Reference
 
 
 ## Built With
