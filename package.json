@@ -1,6 +1,6 @@
 {
   "name": "oracleepmcloud",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Module for communicating with Oracle EPM Cloud applications",
   "main": "oracleepmcloud.js",
   "scripts": {
