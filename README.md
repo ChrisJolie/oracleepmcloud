@@ -82,10 +82,12 @@ getRESTAPIVersion()
 Requesting API Version Info:
 
 ```js
+// Create instance
 var getVersionInfo = oraclecloud.getVersionInfo;
 
 let versionRequest = "v3"; // or oraclecloud.oracleAPIVersion
 
+// Call instance
 getVersionInfo(versionRequest)
   .then(function(response) {
     console.log(response.data);
@@ -101,8 +103,10 @@ getVersionInfo(versionRequest)
 Requesting Application Name:
 
 ```js
+// Create instance
 var getApplicationName = oraclecloud.getApplicationName;
 
+// Call instance
 getApplicationName()
   .then(function(response) {
     console.log(response);
@@ -118,11 +122,362 @@ getApplicationName()
 Requesting Job Definitions:
 
 ```js
+// Create instance
 var getJobDefinitions = oraclecloud.getJobDefinitions;
 
 var jobTypes = "CUBE_REFRESH"; // Supported Job Types: RULES, RULESET, PLAN_TYPE_MAP, IMPORT_DATA, EXPORT_DATA, EXPORT_METADATA, IMPORT_METADATA, CUBE_REFRESH, and CLEAR_CUBE
 
+// Call instance
 getJobDefinitions(jobTypes)
+  .then(function(response) {
+    console.log(response.data);
+    // Then send response to client
+    // res.sendStatus(response.status);
+  }).catch(function(error){
+    console.log(error);
+    // respond with error
+    // next(error);
+  });
+```
+
+Requesting Job Status:
+
+```js
+// Create instance
+var getJobStatus = oraclecloud.getJobStatus;
+
+var jobID = "924"; // Job ID can be found in the Job Console
+
+// Call instance
+getJobStatus(jobID)
+  .then(function(response) {
+    console.log(response.data);
+    // Then send response to client
+    // res.sendStatus(response.status);
+  }).catch(function(error){
+    console.log(error);
+    // respond with error
+    // next(error);
+  });
+```
+
+Requesting Job Status Details:
+
+```js
+// Create instance
+var getJobStatusDetails = oraclecloud.getJobStatusDetails;
+
+var jobID = "924"; // Job ID can be found in the Job Console
+
+// Call instance
+getJobStatusDetails(jobID)
+  .then(function(response) {
+    console.log(response.data);
+    // Then send response to client
+    // res.sendStatus(response.status);
+  }).catch(function(error){
+    console.log(error);
+    // respond with error
+    // next(error);
+  });
+```
+
+Requesting Child Job Status Details:
+
+```js
+// Create instance
+var getChildJobStatusDetails = oraclecloud.getChildJobStatusDetails;
+
+var jobID = "924"; // Job ID can be found in the Job Console
+var childJobID = "86"; // Child Job ID is returned as part of Job details
+
+// Call instance
+getChildJobStatusDetails(jobID,childJobID)
+  .then(function(response) {
+    console.log(response.data);
+    // Then send response to client
+    // res.sendStatus(response.status);
+  }).catch(function(error){
+    console.log(error);
+    // respond with error
+    // next(error);
+  });
+```
+
+Requesting Member Details:
+
+```js
+// Create instance
+var getMember = oraclecloud.getMember;
+
+var dimension = "Account";
+var member = "A400000";
+
+// Call instance
+getMember(dimension,member)
+  .then(function(response) {
+    console.log(response.data);
+    // Then send response to client
+    // res.sendStatus(response.status);
+  }).catch(function(error){
+    console.log(error);
+    // respond with error
+    // next(error);
+  });
+```
+
+Requesting User Preferences:
+
+```js
+// Create instance
+var getUserPreferences = oraclecloud.getUserPreferences;
+
+// Call instance
+getUserPreferences()
+  .then(function(response) {
+    console.log(response.data);
+    // Then send response to client
+    // res.sendStatus(response.status);
+  }).catch(function(error){
+    console.log(error);
+    // respond with error
+    // next(error);
+  });
+```
+
+Requesting All Substitution Variables:
+
+```js
+// Create instance
+var getAllSubstitutionVariables = oraclecloud.getAllSubstitutionVariables;
+
+// Call instance
+getAllSubstitutionVariables()
+  .then(function(response) {
+    console.log(response.data);
+    // Then send response to client
+    // res.sendStatus(response.status);
+  }).catch(function(error){
+    console.log(error);
+    // respond with error
+    // next(error);
+  });
+```
+
+Requesting a Single Substitution Variable:
+
+```js
+// Create instance
+var getSubstitutionVariable = oraclecloud.getSubstitutionVariable;
+
+var subvar = 'FCSTStartYr'; // Only works for Global Sub Variables
+
+// Call instance
+getSubstitutionVariable(subvar)
+  .then(function(response) {
+    console.log(response.data);
+    // Then send response to client
+    // res.sendStatus(response.status);
+  }).catch(function(error){
+    console.log(error);
+    // respond with error
+    // next(error);
+  });
+```
+
+Requesting Substitution Variables for a Plan Type:
+
+```js
+// Create instance
+var getPlanTypeSubstitutionVariables = oraclecloud.getPlanTypeSubstitutionVariables;
+
+var plantype = 'OEP_FS';
+
+// Call instance
+getPlanTypeSubstitutionVariables(plantype)
+  .then(function(response) {
+    console.log(response.data);
+    // Then send response to client
+    // res.sendStatus(response.status);
+  }).catch(function(error){
+    console.log(error);
+    // respond with error
+    // next(error);
+  });
+```
+
+Requesting Derived Substitution Variables:
+
+```js
+// Create instance
+var getDerivedSubstitutionVariables = oraclecloud.getDerivedSubstitutionVariables;
+
+var plantype = 'OEP_FS';
+
+// Call instance
+getDerivedSubstitutionVariables(plantype)
+  .then(function(response) {
+    console.log(response.data);
+    // Then send response to client
+    // res.sendStatus(response.status);
+  }).catch(function(error){
+    console.log(error);
+    // respond with error
+    // next(error);
+  });
+```
+
+Requesting a Substitution Variable for a Plan Type:
+
+```js
+// Create instance
+var getSinglePlanTypeSubstitutionVariable = oraclecloud.getSinglePlanTypeSubstitutionVariable;
+
+var plantype = 'OEP_FS';
+var subvar = 'OEP_YearRange'
+
+// Call instance
+getSinglePlanTypeSubstitutionVariable(plantype,subvar)
+  .then(function(response) {
+    console.log(response.data);
+    // Then send response to client
+    // res.sendStatus(response.status);
+  }).catch(function(error){
+    console.log(error);
+    // respond with error
+    // next(error);
+  });
+```
+
+Requesting a Single Derived Substitution Variable:
+
+```js
+// Create instance
+var getSingleDerivedSubstitutionVariable = oraclecloud.getSingleDerivedSubstitutionVariable;
+
+var plantype = 'OEP_FS';
+var subvar = 'OEP_YearRange'
+
+// Call instance
+getSingleDerivedSubstitutionVariable(plantype,subvar)
+  .then(function(response) {
+    console.log(response.data);
+    // Then send response to client
+    // res.sendStatus(response.status);
+  }).catch(function(error){
+    console.log(error);
+    // respond with error
+    // next(error);
+  });
+```
+
+Execute a Job:
+
+```js
+// Create instance
+var executeJob = oraclecloud.executeJob;
+
+// Job must be created in EPBCS first
+var jobParameters = {
+  "jobType":"RULES",
+  "jobName":"ORG_Agg_Financials",
+  "parameters":{
+    "Scenario":"OEP_Plan",
+    "Version":"OEP_Working"
+  }
+};
+
+// Call instance
+executeJob(jobParameters)
+  .then(function(response) {
+    console.log(response.data);
+    // Then send response to client
+    // res.sendStatus(response.status);
+  }).catch(function(error){
+    console.log(error);
+    // respond with error
+    // next(error);
+  });
+```
+
+Create a New Member:
+
+```js
+// Create instance
+var createMember = oraclecloud.createMember;
+
+// Call instance
+createMember(req.body)
+  .then(function(response) {
+    console.log(response.status);
+    // Then send response to client
+    // res.sendStatus(response.status);
+  }).catch(function(error){
+    console.log(error);
+    // respond with error
+    // next(error);
+  });
+```
+
+Update a Substitution Variable:
+
+```js
+// Create instance
+var updateSubstitutionVariable = oraclecloud.updateSubstitutionVariable;
+
+var payload = {
+  "items": [
+    {
+      "name": "PlanStartPeriod",
+      "value": "Jan",
+      "planType": "ALL"
+    },
+    {
+      "name": "PlanEndPeriod",
+      "value": "Dec",
+      "planType": "ALL"
+    }
+  ]
+}
+
+// Call instance
+updateSubstitutionVariable(payload)
+  .then(function(response) {
+    console.log(response.data);
+    // Then send response to client
+    // res.sendStatus(response.status);
+  }).catch(function(error){
+    console.log(error);
+    // respond with error
+    // next(error);
+  });
+```
+
+Update a Play Type specific Substitution Variable:
+
+```js
+// Create instance
+var updatePlanTypeSubstitutionVariable = oraclecloud.updatePlanTypeSubstitutionVariable;
+
+var payload = {
+  "items": [
+    {
+      "name": "PlanStartPeriod",
+      "value": "Jan",
+      "planType": "ALL"
+    },
+    {
+      "name": "PlanEndPeriod",
+      "value": "Dec",
+      "planType": "ALL"
+    }
+  ]
+};
+
+var plantype = "ALL";
+
+// Call instance
+updatePlanTypeSubstitutionVariable(payload,plantype)
   .then(function(response) {
     console.log(response.data);
     // Then send response to client
