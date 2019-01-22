@@ -71,6 +71,7 @@ getRESTAPIVersion()
   .then(function(response) {
     console.log(response.data);
     // Then send response to client
+    // res.sendStatus(response.status);
   }).catch(function(error){
     console.log(error);
     // respond with error
@@ -78,6 +79,60 @@ getRESTAPIVersion()
   });
 ```
 
+Requesting API Version Info:
+
+```js
+var getVersionInfo = oraclecloud.getVersionInfo;
+
+let versionRequest = "v3"; // or oraclecloud.oracleAPIVersion
+
+getVersionInfo(versionRequest)
+  .then(function(response) {
+    console.log(response.data);
+    // Then send response to client
+    // res.sendStatus(response.status);
+  }).catch(function(error){
+    console.log(error);
+    // respond with error
+    // next(error);
+  });
+```
+
+Requesting Application Name:
+
+```js
+var getApplicationName = oraclecloud.getApplicationName;
+
+getApplicationName()
+  .then(function(response) {
+    console.log(response);
+    // Then send response to client
+    // res.sendStatus(response.status);
+  }).catch(function(error){
+    console.log(error);
+    // respond with error
+    // next(error);
+  });
+```
+
+Requesting Job Definitions:
+
+```js
+var getJobDefinitions = oraclecloud.getJobDefinitions;
+
+var jobTypes = "CUBE_REFRESH"; // Supported Job Types: RULES, RULESET, PLAN_TYPE_MAP, IMPORT_DATA, EXPORT_DATA, EXPORT_METADATA, IMPORT_METADATA, CUBE_REFRESH, and CLEAR_CUBE
+
+getJobDefinitions(jobTypes)
+  .then(function(response) {
+    console.log(response.data);
+    // Then send response to client
+    // res.sendStatus(response.status);
+  }).catch(function(error){
+    console.log(error);
+    // respond with error
+    // next(error);
+  });
+```
 
 ### Data Management Requests
 
