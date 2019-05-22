@@ -1,7 +1,5 @@
 var axios = require('axios');
 
-
-
 var oracleepmcloud = exports;
 
 module.exports = {
@@ -400,6 +398,17 @@ module.exports = {
 /* Data Management Requests */
 
   // GET REST API Version for Migration
+  getMigrationRESTAPIVersion: async function(){
+    let apiCall = await axios.get('/interop/rest/',{
+      baseURL: module.exports.oracleBaseURL,
+      auth: {
+        username: module.exports.oracleUserName,
+        password: module.exports.oraclePW
+      },
+    });
+    //let applicationName = apiCall.data.items[0].name;
+    return apiCall;
+  },
 
   // Get Information about a Specific Version of Migration Sample code
 
