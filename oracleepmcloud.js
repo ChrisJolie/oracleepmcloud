@@ -391,7 +391,7 @@ module.exports = {
     //console.log(apiCall);
     return apiCall;
 
-  }
+  },
 
 
 
@@ -411,6 +411,20 @@ module.exports = {
   },
 
   // Get Information about a Specific Version of Migration Sample code
+  getMigrationVersionInfo: async function(version){
+
+    console.log("Version variable: " + version);
+
+    let apiCall = await axios.get('/interop/rest/' + version,{
+      baseURL: module.exports.oracleBaseURL,
+      auth: {
+        username: module.exports.oracleUserName,
+        password: module.exports.oraclePW
+      },
+    });
+    //let applicationName = apiCall.data.items[0].name;
+    return apiCall;
+  }
 
   // Upload
 
