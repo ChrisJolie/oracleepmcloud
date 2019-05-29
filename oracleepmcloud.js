@@ -1,4 +1,5 @@
 var axios = require('axios');
+var fs = require('fs');
 
 var oracleepmcloud = exports;
 
@@ -9,6 +10,7 @@ module.exports = {
   oraclePW: "",
   oracleAppName: "",
   oracleAPIVersion: "",
+  oracleMigrationAPIVersion: "",
 
   /* EPBCS GET requests */
 
@@ -424,9 +426,35 @@ module.exports = {
     });
     //let applicationName = apiCall.data.items[0].name;
     return apiCall;
-  }
+  },
 
-  // Upload
+  // Upload Application Snapshot
+  uploadSnapshot: async function(fileName,fileSize){
+
+    console.log("File Name: " + fileName.path);
+    console.log("Size: " + fileSize);
+
+    var requestURL = '/interop/rest/' + module.exports.oracleMigrationAPIVersion + '/applicationsnapshots/'+ fileName.path +'/contents?q={"isLast":true,"chunkSize":' + fileSize + ',"isFirst":true}';
+
+    let apiCall = await axios.post(requestURL,
+    fileName,
+    {
+      baseURL: module.exports.oracleBaseURL,
+      auth: {
+        username: module.exports.oracleUserName,
+        password: module.exports.oraclePW
+      },
+      headers: {
+        'Content-Type': 'application/octet-stream',
+        //'Content-Type': 'text/plain',
+        //'Content-Length': fileSize
+      },
+      encoding: null
+      //data: fileName
+    });
+    //let applicationName = apiCall.data.items[0].name;
+    return apiCall;
+  }
 
   // Download
 
