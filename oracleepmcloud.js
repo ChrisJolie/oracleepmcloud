@@ -457,7 +457,7 @@ module.exports = {
   // Upload File to DM Inbox
   /* Copy from above and modify location */
 
-  // Download
+  // Download File
   downloadFile: async function(fileName){
 
     console.log("File Name: " + fileName);
@@ -472,16 +472,38 @@ module.exports = {
       },
       headers: {
         //'Content-Type': 'application/octet-stream'
-
       },
+      //allows creation of binary write stream
       responseType: 'arraybuffer'
-      //encoding: null
+
+    });
+    //let applicationName = apiCall.data.items[0].name;
+    return apiCall;
+  },
+
+  // List Files
+  listFiles: async function(){
+
+    //console.log("File Name: " + fileName);
+
+    var requestURL = '/interop/rest/' + module.exports.oracleMigrationAPIVersion + '/applicationsnapshots';
+
+    let apiCall = await axios.get(requestURL,{
+      baseURL: module.exports.oracleBaseURL,
+      auth: {
+        username: module.exports.oracleUserName,
+        password: module.exports.oraclePW
+      },
+      headers: {
+        //'Content-Type': 'application/octet-stream'
+      },
+      //allows creation of binary write stream
+      //responseType: 'arraybuffer'
+
     });
     //let applicationName = apiCall.data.items[0].name;
     return apiCall;
   }
-
-  // List Files
 
   // Delete Files
 
