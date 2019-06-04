@@ -445,20 +445,43 @@ module.exports = {
         password: module.exports.oraclePW
       },
       headers: {
-        'Content-Type': 'application/octet-stream',
-        //'Content-Type': 'text/plain',
-        //'Content-Length': fileSize
+        'Content-Type': 'application/octet-stream'
       },
       encoding: null
       //data: fileName
     });
     //let applicationName = apiCall.data.items[0].name;
     return apiCall;
-  }
+  },
+
+  // Upload File to DM Inbox
+  /* Copy from above and modify location */
 
   // Download
+  downloadFile: async function(fileName){
 
-  // List Filters
+    console.log("File Name: " + fileName);
+
+    var requestURL = '/interop/rest/' + module.exports.oracleMigrationAPIVersion + '/applicationsnapshots/'+ fileName +'/contents';
+
+    let apiCall = await axios.get(requestURL,{
+      baseURL: module.exports.oracleBaseURL,
+      auth: {
+        username: module.exports.oracleUserName,
+        password: module.exports.oraclePW
+      },
+      headers: {
+        //'Content-Type': 'application/octet-stream'
+
+      },
+      responseType: 'arraybuffer'
+      //encoding: null
+    });
+    //let applicationName = apiCall.data.items[0].name;
+    return apiCall;
+  }
+
+  // List Files
 
   // Delete Files
 
