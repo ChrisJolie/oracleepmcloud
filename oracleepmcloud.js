@@ -503,9 +503,29 @@ module.exports = {
     });
     //let applicationName = apiCall.data.items[0].name;
     return apiCall;
-  }
+  },
 
   // Delete Files
+  deleteFile: async function(fileName){
+
+    console.log("File Name: " + fileName);
+
+    var requestURL = '/interop/rest/' + module.exports.oracleMigrationAPIVersion + '/applicationsnapshots/' + fileName;
+
+    let apiCall = await axios.delete(requestURL,{
+      baseURL: module.exports.oracleBaseURL,
+      auth: {
+        username: module.exports.oracleUserName,
+        password: module.exports.oraclePW
+      },
+      headers: {
+        //'Content-Type': 'application/octet-stream'
+      },
+
+    });
+    //let applicationName = apiCall.data.items[0].name;
+    return apiCall;
+  }
 
   // Get Information about All Services
 
