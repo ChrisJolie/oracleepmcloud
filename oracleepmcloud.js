@@ -482,11 +482,17 @@ module.exports = {
   },
 
   // List Files
-  listFiles: async function(){
+  listFiles: async function(fileName){
 
-    //console.log("File Name: " + fileName);
+    //can accept a specific file name or list all files
 
-    var requestURL = '/interop/rest/' + module.exports.oracleMigrationAPIVersion + '/applicationsnapshots';
+    if(fileName){
+      var requestURL = '/interop/rest/' + module.exports.oracleMigrationAPIVersion + '/applicationsnapshots/' + fileName;
+    } else {
+      var requestURL = '/interop/rest/' + module.exports.oracleMigrationAPIVersion + '/applicationsnapshots';
+    }
+
+    //console.log(requestURL);
 
     let apiCall = await axios.get(requestURL,{
       baseURL: module.exports.oracleBaseURL,
@@ -548,17 +554,15 @@ module.exports = {
     return apiCall;
   }
 
-  // Run Recreate on a Service
+  // Run Recreate on a Service *** Need a test environment ***
 
-  // Restart the Service Instance
+  // Restart the Service Instance  *** Need a test environment ***
 
-  // Get Information About All Application Snapshots
+  // Get Information About All Application Snapshots *** Same as ListFiles ***
 
-  // Get Information about a Specific Applicaiton Snapshot Sample code
+  // Upload Application Snapshots *** Same as upload ***
 
-  // Upload Application Snapshots
-
-  // Download Application Snapshots
+  // Download Application Snapshots  *** Same as download ***
 
   // Provide Feedback
 
