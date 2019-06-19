@@ -525,11 +525,30 @@ module.exports = {
     });
     //let applicationName = apiCall.data.items[0].name;
     return apiCall;
-  }
+  },
 
   // Get Information about All Services
+  servicesInfo: async function(){
 
-  // Run Recreate on a Services
+    //console.log("File Name: " + fileName);
+
+    var requestURL = '/interop/rest/' + module.exports.oracleMigrationAPIVersion + '/services';
+
+    let apiCall = await axios.get(requestURL,{
+      baseURL: module.exports.oracleBaseURL,
+      auth: {
+        username: module.exports.oracleUserName,
+        password: module.exports.oraclePW
+      },
+      headers: {
+        //'Content-Type': 'application/octet-stream'
+      },
+
+    });
+    return apiCall;
+  }
+
+  // Run Recreate on a Service
 
   // Restart the Service Instance
 
