@@ -552,11 +552,11 @@ module.exports = {
 
     });
     return apiCall;
-  }
+  },
 
-  // Run Recreate on a Service *** Need a test environment ***
+  // Run Recreate on a Service *** COMING SOON - Need Test Environment ***
 
-  // Restart the Service Instance  *** Need a test environment ***
+  // Restart the Service Instance  *** COMING SOON - Need Test Environment ***
 
   // Get Information About All Application Snapshots *** Same as ListFiles ***
 
@@ -564,13 +564,32 @@ module.exports = {
 
   // Download Application Snapshots  *** Same as download ***
 
-  // Provide Feedback
+  // Provide Feedback  *** COMING SOON - Need Test Environment ***
 
-  // LCM exports
+  // LCM exports *** COMING SOON ***
 
-  // LCM Import
+  // LCM Import *** COMING SOON ***
 
   // Get the Build Version and Daily Maintenance Window time
+  maintenanceWindow: async function(){
+
+    //console.log("File Name: " + fileName);
+
+    var requestURL = '/interop/rest/' + module.exports.oracleMigrationAPIVersion + '/services/dailymaintenance';
+
+    let apiCall = await axios.get(requestURL,{
+      baseURL: module.exports.oracleBaseURL,
+      auth: {
+        username: module.exports.oracleUserName,
+        password: module.exports.oraclePW
+      },
+      headers: {
+        //'Content-Type': 'application/octet-stream'
+      },
+
+    });
+    return apiCall;
+  }
 
   // Setting the Daily Maintenance Window Time
 
