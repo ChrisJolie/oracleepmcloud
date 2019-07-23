@@ -11,6 +11,7 @@ module.exports = {
   oracleAppName: "",
   oracleAPIVersion: "",
   oracleMigrationAPIVersion: "",
+  oracleRESTVersion: "",
 
   /* EPBCS GET requests */
 
@@ -575,8 +576,9 @@ module.exports = {
 
     //console.log("File Name: " + fileName);
 
-    var requestURL = '/interop/rest/' + module.exports.oracleMigrationAPIVersion + '/services/dailymaintenance';
-
+    //var requestURL = '/interop/rest/' + module.exports.oracleMigrationAPIVersion + '/services/dailymaintenance';
+    var requestURL = '/interop/rest/' + module.exports.oracleRESTVersion + '/services/dailymaintenance';
+    
     let apiCall = await axios.get(requestURL,{
       baseURL: module.exports.oracleBaseURL,
       auth: {
@@ -589,9 +591,33 @@ module.exports = {
 
     });
     return apiCall;
-  }
+  },
 
   // Setting the Daily Maintenance Window Time
+  setMaintenanceTime: async function(time){
+
+    console.log("Maintenance Time: " + time);
+
+    //var requestURL = '/interop/rest/' + module.exports.oracleAPIVersion + '/services/dailymaintenance?StartTime=23';
+    var requestURL = '/interop/rest/' + module.exports.oracleRESTVersion + '/services/dailymaintenance?StartTime=' + time;
+
+    console.log(requestURL);
+
+    let apiCall = await axios.put(requestURL,
+      time,
+      {
+      baseURL: module.exports.oracleBaseURL,
+      auth: {
+        username: module.exports.oracleUserName,
+        password: module.exports.oraclePW
+      },
+      headers: {
+        //'Content-Type': 'application/octet-stream'
+      },
+
+    });
+    return apiCall;
+  }
 
   // Copy Application Snapshot
 
