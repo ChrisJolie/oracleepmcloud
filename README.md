@@ -502,194 +502,194 @@ Get Migration REST API Version
 
 ```js
 // Create instance
-	var getMigrationRESTAPIVersion = oraclecloud.getMigrationRESTAPIVersion;
+var getMigrationRESTAPIVersion = oraclecloud.getMigrationRESTAPIVersion;
 
 // Call instance
-  getMigrationRESTAPIVersion()
-    .then(function(response) {
-      console.log(response.data);
-    // Then send response to client
-    // res.sendStatus(response.status);
-    }).catch(function(error){
-    console.log(error);
-    // respond with error
-    // next(error);
-    });
+getMigrationRESTAPIVersion()
+  .then(function(response) {
+    console.log(response.data);
+  // Then send response to client
+  // res.sendStatus(response.status);
+  }).catch(function(error){
+  console.log(error);
+  // respond with error
+  // next(error);
+  });
 ```
 
 Get Migration Version Information
 
 ```js
 // Create instance
-	var getMigrationVersionInfo = oraclecloud.getMigrationVersionInfo;
+var getMigrationVersionInfo = oraclecloud.getMigrationVersionInfo;
 
-	let versionRequest = "11.1.2.3.600";
+let versionRequest = "11.1.2.3.600";
 
 // Call instance
-  getMigrationVersionInfo(versionRequest)
-    .then(function(response) {
-      console.log(response.data);
-    // Then send response to client
-    // res.sendStatus(response.status);
-    }).catch(function(error){
-    console.log(error);
-    // respond with error
-    // next(error);
-    });
+getMigrationVersionInfo(versionRequest)
+  .then(function(response) {
+    console.log(response.data);
+  // Then send response to client
+  // res.sendStatus(response.status);
+  }).catch(function(error){
+  console.log(error);
+  // respond with error
+  // next(error);
+  });
 ```
 
 Upload a File
 
 ```js
-  // Create instance
-	var uploadSnapshot = oraclecloud.uploadSnapshot;
+// Create instance
+var uploadSnapshot = oraclecloud.uploadSnapshot;
 
-  //create stream
-	const MY_FILE_PATH = 'cjtestsnapshotv3.zip';
-	const readmeStream = fs.createReadStream(MY_FILE_PATH);
-	const {size} = fs.statSync(MY_FILE_PATH);
+//create stream
+const MY_FILE_PATH = 'cjtestsnapshotv3.zip';
+const readmeStream = fs.createReadStream(MY_FILE_PATH);
+const {size} = fs.statSync(MY_FILE_PATH);
 
-  // Call instance
-  uploadSnapshot(readmeStream,size)
-    .then(function(response) {
-      console.log(response.data);
-      // Then send response to client
-      // res.sendStatus(response.status);
-    }).catch(function(error){
-			console.log(error);
-      // respond with error
-      // next(error);
-    });
+// Call instance
+uploadSnapshot(readmeStream,size)
+  .then(function(response) {
+    console.log(response.data);
+    // Then send response to client
+    // res.sendStatus(response.status);
+  }).catch(function(error){
+    console.log(error);
+    // respond with error
+    // next(error);
+  });
 ```
 
 Download a File
 
 ```js
-  // Create instance
-	var downloadFile = oraclecloud.downloadFile;
+// Create instance
+var downloadFile = oraclecloud.downloadFile;
 
-  //Name of the file you want to download from the inbox
-	var fileName = 'myFileName';
+//Name of the file you want to download from the inbox
+var fileName = 'myFileName';
 
-  // Call instance
-  downloadFile(fileName)
-    .then(function(response) {
+// Call instance
+downloadFile(fileName)
+  .then(function(response) {
 
-			// create Write stream
-			var writeStream = fs.createWriteStream('myDownload.zip');
+    // create Write stream
+    var writeStream = fs.createWriteStream('myDownload.zip');
 
-			//pipe data to Write Stream
-			writeStream.write(response.data);
-			writeStream.end();
+    //pipe data to Write Stream
+    writeStream.write(response.data);
+    writeStream.end();
 
-			// Then send response to client
-      // res.sendStatus(response.status);
-    }).catch(function(error){
-			console.log(error);
-      // respond with error
-      // next(error);
-    });
+    // Then send response to client
+    // res.sendStatus(response.status);
+  }).catch(function(error){
+    console.log(error);
+    // respond with error
+    // next(error);
+  });
 ```
 
 List Files in Inbox
 
 ```js
-  // Create instance
-	var listFiles = oraclecloud.listFiles;
+// Create instance
+var listFiles = oraclecloud.listFiles;
 
-  // Call instance
-  listFiles()
-    .then(function(response) {
-      console.log(response.data);
-      // Then send response to client
-      // res.sendStatus(response.status);
-    }).catch(function(error){
-      console.log(error);
-      // respond with error
-      // next(error);
-    });
+// Call instance
+listFiles()
+  .then(function(response) {
+    console.log(response.data);
+    // Then send response to client
+    // res.sendStatus(response.status);
+  }).catch(function(error){
+    console.log(error);
+    // respond with error
+    // next(error);
+  });
 ```
 
 Delete a File
 
 ```js
-  // Create instance
-	var deleteFile = oraclecloud.deleteFile;
+// Create instance
+var deleteFile = oraclecloud.deleteFile;
 
-  // Name of file to delete
-  var fileName = 'mySnapshot';
-  
-  // Call instance
-  deleteFile(fileName)
-    .then(function(response) {
-      console.log(response.data);
-      // Then send response to client
-      // res.sendStatus(response.status);
-    }).catch(function(error){
-      console.log(error);
-      // respond with error
-      // next(error);
-    });
+// Name of file to delete
+var fileName = 'mySnapshot';
+
+// Call instance
+deleteFile(fileName)
+  .then(function(response) {
+    console.log(response.data);
+    // Then send response to client
+    // res.sendStatus(response.status);
+  }).catch(function(error){
+    console.log(error);
+    // respond with error
+    // next(error);
+  });
 ```
 
 Get information on services
 
 ```js
-  // Create instance
-	var servicesInfo = oraclecloud.servicesInfo;
+// Create instance
+var servicesInfo = oraclecloud.servicesInfo;
 
-  // Call instance
-  servicesInfo()
-    .then(function(response) {
-      console.log(response.data);
-      // Then send response to client
-      // res.sendStatus(response.status)
-    }).catch(function(error){
-      console.log(error);
-      // respond with error
-      // next(error);
-    });
+// Call instance
+servicesInfo()
+  .then(function(response) {
+    console.log(response.data);
+    // Then send response to client
+    // res.sendStatus(response.status)
+  }).catch(function(error){
+    console.log(error);
+    // respond with error
+    // next(error);
+  });
 ```
 
 Get Maintenance Window
 
 ```js
-  // Create instance
-	var maintenanceWindow = oraclecloud.maintenanceWindow;
+// Create instance
+var maintenanceWindow = oraclecloud.maintenanceWindow;
 
-  // Call instance
-  maintenanceWindow()
-    .then(function(response) {
-      console.log(response.data);
-      // Then send response to client
-      // res.sendStatus(response.status)
-    }).catch(function(error){
-      console.log(error);
-      // respond with error
-      // next(error);
-    });
+// Call instance
+maintenanceWindow()
+  .then(function(response) {
+    console.log(response.data);
+    // Then send response to client
+    // res.sendStatus(response.status)
+  }).catch(function(error){
+    console.log(error);
+    // respond with error
+    // next(error);
+  });
 ```
 
 Set Maintenance Window
 
 ```js
-  // Create instance
-  var setMaintenanceTime = oraclecloud.setMaintenanceTime;
+// Create instance
+var setMaintenanceTime = oraclecloud.setMaintenanceTime;
   
-  // use 24 hour format, 1 - 24
-  var maintenanceTime = "11";
+// use 24 hour format, 1 - 24
+var maintenanceTime = "11";
 
-  // Call instance
-  setMaintenanceTime(maintenanceTime)
-    .then(function(response) {
-      console.log(response.data);
-      // Then send response to client
-      // res.sendStatus(response.status)
-    }).catch(function(error){
-      console.log(error);
-      // respond with error
-      // next(error);
-    });
+// Call instance
+setMaintenanceTime(maintenanceTime)
+  .then(function(response) {
+    console.log(response.data);
+    // Then send response to client
+    // res.sendStatus(response.status)
+  }).catch(function(error){
+    console.log(error);
+    // respond with error
+    // next(error);
+  });
 ```
 
 Additional Data Management Functions Coming Soon
